@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<input v-model="keyword" type="text" @input="search" />
+			<!--<button @click="search">搜索</button>-->
+			<div v-html="html"></div>
+			<!--<div><span style="color: red;">abc</span>defghijklm</div>-->
+		</div>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					keyword: "",
+					text: "abcdefghijklmabckkkk",
+					html: "abcdefghijklmabckkkk"
+				},
+				methods: {
+					search() {
+						if(this.keyword) {
+							console.log(this.keyword, this.text);
+							var arr = this.text.split(this.keyword);
+							var str = arr.join(`<span style="color:red">${this.keyword}</span>`);
+							this.html = str;
+						} else {
+							this.html = this.text
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

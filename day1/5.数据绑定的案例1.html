@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!--V-->
+		<div id="demo">
+			<input type="range" v-model="size" />
+			<!--$("select").val()-->
+			<select v-model="color">
+				<option value="blue">蓝色</option>
+				<option value="green">绿色</option>
+				<option value="yellow">黄色</option>
+			</select>
+			<p :style="{fontSize:size+'px',color:color}">显示属性值</p>
+		</div>
+		<script>
+			new Vue({
+				el: "#demo",
+				//M
+				data: {
+					size:20,
+					color:'green'
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!--HTML层 View  Vue View 用户一切所见都是源于View-->
+		<div id="demo">
+			<!--$("input").val()-->
+			<input v-model="str" />
+			<p>{{str}}</p>
+		</div>
+		<!--JS层-->
+		<script>
+			//$("")
+			new Vue({
+				el:"#demo",
+				data:{
+					//Modal  -> ajax -> 后端
+					str:"数据"
+				}
+			})
+		</script>
+	</body>
+</html>

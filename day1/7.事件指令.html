@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<!--V-->
+			<input v-model="username" />
+			<input v-model="password" />
+			<!--$("button").click(()=>{})-->
+			<!--<button v-on:click="login()">登录</button>-->
+			<!--
+				onmousedown    v-on:mousedown   @mousedown
+				onkeyup        v-on:keyup       @keyup
+				onchange       v-on:change      @change
+			-->
+			<button @click="login">登录</button>
+		</div>
+		<script>
+			new Vue({
+				el:"#demo",
+				//M
+				data:{
+					username:"",
+					password:""
+				},
+				methods:{
+					login(){
+						console.log("登录")
+						console.log(this.username,this.password)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

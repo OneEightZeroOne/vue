@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../js/vue.js"></script>
+	</head>
+	<body>
+		<!--new Vue最大容器-->
+		<div id="demo">
+			
+		</div>
+		<script>
+			//组件化Vue.component
+			//Vue.component("组件的名字",组件的对象(参数))
+			Vue.component("xheader",{
+				data(){
+					//每个组件使用的时候都返回新的数据模型
+					return {
+						name:"abc"
+					}
+				},
+				template:`
+					<div :style='{
+							"padding":"20px",
+							"border":"1px solid red"
+						}'>
+						<header>头部组件</header>
+						<input v-model="name" />
+						<p>{{name}}</p>
+					</div>
+				`
+			})
+			new Vue({
+				//唯一的
+				el:"#demo",
+				data:{
+					
+				},
+				template:`
+					<div>
+						<xheader />
+						<xheader />
+						<xheader />
+						<xheader />
+					</div>
+				`
+			})
+		</script>
+	</body>
+</html>

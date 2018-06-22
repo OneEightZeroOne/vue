@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+		<script src="../js/jquery-3.3.1.js"></script>
+		<!--vue jquery requirejs梦幻组合-->
+		<!--50% 50%    30% 70%-->
+	</head>
+
+	<body>
+		<!--M V-->
+		<!--V-->
+		<div id="demo">
+			<p>{{num1}}</p>
+			<p>{{num2}}</p>
+			<p>{{name}}</p>
+			<!--<p>{{total}}</p>-->
+			<p>{{start}}</p>
+			<p>{{ajax}}</p>
+			<ul>
+				<li v-for="a in arr" v-if="arr.length>0">{{a}}</li>
+				<li v-if="arr.length==0">正在加载中...</li>
+				<!--<li v-else>正在加载中...</li>-->
+			</ul>
+		</div>
+		<script>
+			//M
+			new Vue({
+				el: "#demo",
+				data: {
+					//num1:1,
+					//num2:2,
+					//name:"ly"
+					arr: []
+				},
+				computed: {
+					//如果我想得到一个新的结果，而这个结果是基于data里面的数据计算出来的，那我可以用计算属性
+					total() {
+						console.log("计算");
+						return this.num1 + this.num2
+					},
+					//this.name = "ly"  计算属性里面的函数名字，在data里面是不能在定义的
+					name() {
+						return "lx"
+					},
+					num1() {
+						return 1
+					},
+					num2() {
+						return 2
+					},
+					start() {
+						setInterval(() => {
+							console.log(this.arr)
+						}, 1000)
+						return;
+					},
+					//ajax
+					ajax() {
+						var self = this;
+						//ajax
+						setTimeout(function() {
+							$.ajax({
+								type: "get",
+								url: "data.json",
+								async: true,
+								success(data) {
+									console.log(data);
+									console.log(this);
+									self.arr = data.arr
+								}
+							});
+						}, 1000)
+					}
+				} //被计算过的
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!--react facebook angular google 阿里巴巴 百度  vue不隶属于任何盈利组织和公司-->
+		<!--weex vue-->
+		<!--linux-->
+		<!--版权 专利-->
+		<div id="demo"></div>
+		<script type="text/javascript">
+			new Vue({
+				el:"#demo",
+				//M
+				data:{
+					name:"abc"
+				},
+				//V  构造一段虚拟的HTML结构，然后根据数据模型，拼接一个真实的DOM   $().html(html) 
+				template:`
+					<p>{{name}}</p>
+				`
+			})
+		</script>
+	</body>
+</html>

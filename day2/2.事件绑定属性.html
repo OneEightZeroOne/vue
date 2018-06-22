@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!--V-->
+		<!--React-->
+		<div id="demo">
+			<!--<button @click="name">name</button>
+			<p>{{name()}}</p>
+			<p>{{skill()}}</p>-->
+			<p>{{(function(){
+				return 1
+			})()}}</p>
+			
+			<p>{{(function(){
+				return 1
+			})()}}</p>
+			
+			<p>{{(function(){
+				var a = 1;
+				var b = 2;
+				return a+b;
+			})()}}</p>
+			
+			<p :name="(function(){
+				var a = 1;
+				var b = 2;
+				return a+b;
+			})()">{{(function(){
+				var a = 1;
+				var b = 2;
+				return a+b;
+			})()}}</p>
+		</div>
+		<script>
+			new Vue({
+				el:"#demo",
+				/*methods:{
+					name(){
+						console.log(1);
+						return "ly"
+					},
+					skill(){
+						return ['ps','css','js']
+					}
+				}*/
+			})
+		</script>
+	</body>
+</html>

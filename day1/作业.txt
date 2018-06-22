@@ -1,0 +1,6 @@
+1.弹窗
+
+<button></button>
+
+
+v-show="bool"控制弹窗的出现隐藏

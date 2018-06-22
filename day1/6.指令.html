@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--  
+			v-前缀就是vue独有的指令
+		-->
+		<div id="demo">
+			<p style="color: red;">1.文本指令{{str}}或者v-text v-html    $().text() $().html()</p>
+			<!--1.就是页面是先出现 {{str}}->ly -->
+			<p>{{str}}</p>
+			<!--2.属性值是不影响页面内容的显示 -->
+			<p v-text="str"></p>
+			
+			<p style="color: red;">2.v-pre</p>
+			<p v-pre>不解析{{}}</p>
+			
+			<p style="color: red;">3.v-show  css的改变      $().show()</p>
+			<p v-show="bool==='1'">显示或者隐藏</p>
+			
+			<p style="color: red;">4.v-model</p>
+			<select v-model="bool">
+				<option value="1">显示</option>
+				<option value="0">隐藏</option>
+			</select>
+			
+			<p style="color: red;">5.v-if v-else  节点的增删      $().append()   $().remove</p>
+			<p v-if="bool==='1'">v-if增加或者删除1</p>
+			<p v-else>v-else增加或者删除2</p>
+			
+			<p style="color: red;">6.v-for      $().each()   innerHTML=(arr.map().join(""))</p>
+			<ul>
+				<li v-for="a in arr">名字：{{a.name}}  年龄：{{a.age}}</li>
+			</ul>
+			<input v-model="name" />
+			<table>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>年龄</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="a in arr" v-if="a.name!==name">
+						<th>{{a.name}}</th>
+						<th>{{a.age}}</th>
+						<th>
+							<p>
+								<span v-for="s in a.skill">{{s}}</span>
+							</p>
+						</th>
+					</tr>
+				</tbody>
+			</table>
+			
+			<p style="color: red;">7.v-bind:xxxx 简写:   $().css()   $().attr()   $().toggleClass()</p>
+			<p v-bind:name="name">{{name}}</p>
+			<!--注意:class :style要接受对象-->
+			<p :style="{
+				color:'red',
+				fontSize:'30px'
+			}">{{name}}</p>
+			
+			
+			<p :class="{
+				header:true,
+				footer:false
+			}">{{name}}</p>
+		</div>
+		<script src="../js/vue.js"></script>
+		<script>
+			new Vue({
+				el:"#demo",
+				data:{
+					name:"ly",
+					str:"ly",
+					bool:"0",
+					arr:[{
+						name:"ly",
+						age:18,
+						skill:['ps','css','js']
+					},{
+						name:"lx",
+						age:20,
+						skill:['ae','pe','less']
+					},{
+						name:"ll",
+						age:26,
+						skill:['ts','jsx','sass']
+					}]
+				}
+			})
+		</script>
+	</body>
+</html>

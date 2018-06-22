@@ -1,0 +1,17 @@
+<!--<div class="weui-gallery">-->
+<div :style="{
+    position: 'fixed',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: '#000000',
+    zIndex: 1000
+}">
+	<span :data-src="getImgSrcFn" class="weui-gallery__img" :style="{backgroundImage: `url(${src})`}"></span>
+	<div @click="hideGallery" class="weui-gallery__opr">
+		<a href="javascript:" class="weui-gallery__del">
+			<i class="weui-icon-delete weui-icon_gallery-delete"></i>
+		</a>
+	</div>
+</div>

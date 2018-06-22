@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<!--$().text()-->
+			<p style="color: red;">1.字符串</p>
+			<!--$("#demo").find("p").eq(1).text(str)-->
+			<p>{{str}}</p>
+			<p>{{str+'ing'}}</p>
+			<p>{{str.length>3?"n":"v"}}</p>
+			
+			<p style="color: red;">2.布尔值</p>
+			<!--xxx?1:2-->
+			<p>{{bool?'真的':'假的'}}</p>
+			
+			<p style="color: red;">3.数字</p>
+			<!--一元-->
+			<p>{{-num}}</p>
+			<!--二元-->
+			<p>{{num+9}}</p>
+			<!--三元-->
+			<p>{{num>9?'大于':'小于'}}</p>
+			
+			<p style="color: red;">4.对象</p>
+			<p>{{obj}}</p>
+			<p>{{'姓名:'+obj.name}}</p>
+			<p>年龄:{{obj.age}}{{obj.age}}</p>
+			<p>{{'{'}}{{'{'}}obj.name{{'}'}}{{'}'}}</p>
+			
+			<p style="color: red;">5.数组</p>
+			<p>{{arr}}</p>
+			<p>{{arr[0]}}</p>
+			
+			<p style="color: red;">6.HTML</p>
+			<div v-text="html"></div>
+			<div>{{html}}</div>
+			<!--$().html-->
+			<div v-html="html"></div>
+		</div>
+		<script>
+			//$/jQuery
+			//1.引入vue.js
+			//2.在全局里面有Vue的变量
+			//3.实例化一个对象 new Vue({})
+			//4.new Vue({})   
+			//el，vue的控制的作用域，相当于jQ拿节点
+			//data，在作用域下，我们要放置显示的数据
+			//data的内容 => {{}} 一元，二元和三元表达
+			new Vue({
+				el:"#demo",//element标签 节点  作用域,$("#demo")
+				data:{
+					str:"see",//$("#demo").text(str)
+					bool:false,//布尔值
+					num:10,
+					obj:{
+						name:"ly",
+						age:18
+					},
+					arr:['a','b','c'],
+					html:`<p>123<span>456</span>789</p>`//text()  html()
+				}//数据模型
+			})
+		</script>
+	</body>
+</html>

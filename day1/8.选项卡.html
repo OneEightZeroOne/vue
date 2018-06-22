@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<style>
+			#header {
+				display: flex;
+				text-align: center;
+			}
+			
+			.page {
+				flex: 1
+			}
+			
+			.border {
+				border-bottom: 1px solid green;
+			}
+		</style>
+		<div id="demo">
+			<div id="header">
+				<div class="page" :class="{
+					border:index===pageNum
+				}" @click="moveTo(index)" :index="index" v-for="(p,index) in pages">{{p}}</div>
+			</div>
+			<div id="content">
+				<div v-for="(c,index) in content" v-show="index===pageNum">
+					<p>{{c.title}}</p>
+					<p>{{c.description}}</p>
+				</div>
+			</div>
+		</div>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					pageNum: 0,//默认的页数
+					pages:["第一页","第二页"],
+					content: [{
+						id: 1,
+						title: "新闻1",
+						description: "内容1"
+					}, {
+						id: 2,
+						title: "新闻2",
+						description: "内容2"
+					}, {
+						id: 3,
+						title: "新闻3",
+						description: "内容3"
+					}, {
+						id: 4,
+						title: "新闻4",
+						description: "内容4"
+					}]
+				},
+				methods:{
+					moveTo(index){
+						console.log(index)
+						this.pageNum = index;
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

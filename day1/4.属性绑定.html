@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<!--<p name="{{attr}}">显示属性值</p>-->
+			<p :name="attr">显示属性值</p>
+			<p name="attr">显示属性值</p>
+			<!--$("").attr()-->
+			<p name="attr">显示属性值</p>
+			
+			<p :id="attr">显示属性值</p>
+			
+			<p :class="classes">显示属性值</p>
+			<p :style="styles">显示属性值</p>
+			<!--在:符号下  通常里面就会变成变量，但是class和style是要接受一个对象-->
+		</div>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					attr:"属性值",
+					classes:{
+						header:true,
+						footer:false,
+						content:true
+					},
+					styles:{
+						fontSize:'20px',
+						color:"red"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
