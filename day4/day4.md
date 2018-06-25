@@ -46,3 +46,39 @@ npm start
 ```js
 npm run dev
 ```
+
+
+# vue路由
+
+vue-router模块提供vue的路由功能
+
+引入router模块，往new Vue({})注入router
+```
+new Vue({
+	router
+})
+```
+定义路由规则
+```js
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'HelloWorld',
+      component: HelloWorld
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: xlogin
+    }
+  ]
+})
+```
+
+在全局模板里面main.js,匹配url上的路由，如果满足定义好的规则，则进入相应的组件页面
+```
+template:`
+	<router-view></router-view>
+`
+```
