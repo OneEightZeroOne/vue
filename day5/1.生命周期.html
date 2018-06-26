@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!--
+			
+			
+		-->
+		<!--V-->
+		<div id="demo">
+			<input v-model="name" />
+			<p>{{name}}</p>
+			<button @click="toggle">切换</button>
+			<xfooter v-if="bool"></xfooter>
+		</div>
+		<script>
+			Vue.component("xfooter",{
+				template:`
+					<div>
+						<p>增加或者删除节点</p>
+					</div>
+				`,
+				//销毁
+				beforeDestroy(){
+					console.log("--------beforeDestroy----------")
+				},
+				destroyed(){
+					console.log("--------destroyed----------")
+				}
+			})
+			//M
+			var vm = new Vue({
+				el:"#demo",
+				data:{
+					name:"ly",
+					bool:true
+				},
+				methods:{
+					toggle(){
+						this.bool = !this.bool
+					}
+				},
+				//监听Vue的生命周期
+				//创建之前 节点没拿到 数据没拿到
+				beforeCreate(){
+					console.log("--------beforeCreate----------")
+					console.log(this.$el)
+					console.log(this.$data)
+				},
+				//创建之后 节点没拿到 数据拿到了   改数据阶段
+				created(){
+					console.log("--------created----------")
+					console.log(this.$el)
+					console.log(this.$data)
+				},
+				//挂载之前 节点拿到了 数据也拿到了 页面没变化   改虚拟节点阶段
+				beforeMount(){
+					console.log("--------beforeMount----------")
+					console.log(this.$el)
+					console.log(this.$data)
+				},
+				//挂载之后 节点拿到了 数据也拿到了 页面也变化了
+				/*<div id="demo">
+					{{name}}
+				</div>*/
+				//替换
+				/*<div id="demo">
+					ly
+				</div>*/
+				//挂载之后 是DOM最稳定的时候   最后渲染的阶段
+				mounted(){
+					console.log("--------mounted----------")
+					console.log(this.$el)
+					console.log(this.$data)
+				},
+				beforeUpdate(){
+					console.log("--------beforeUpdate----------")
+					console.log(this.$el)
+					console.log(this.$data)
+				},
+				//监听更新  更新之后触发逻辑
+				updated(){
+					console.log("--------updated----------")
+					console.log(this.$el)
+					console.log(this.$data)
+				}
+			})
+		</script>
+	</body>
+</html>
