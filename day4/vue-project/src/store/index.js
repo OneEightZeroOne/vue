@@ -9,7 +9,8 @@ export default new Vuex.Store({
 	// 公共的数据层
 	state: {
 		isShowGallery: false,
-		gallerySrc: ""
+		gallerySrc: "",
+		isShowActionsheet:false
 	},
 	mutations: {
 		increment(state) {

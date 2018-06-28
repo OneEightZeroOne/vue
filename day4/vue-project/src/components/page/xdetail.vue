@@ -22,12 +22,15 @@
 				</section>
 			</section>
 		</article>
+		<a @click="showActionsheet" href="javascript:;" class="weui-btn weui-btn_primary">页面主操作 Normal</a>
 		<xgallery />
+		<xactionsheet />
 	</div>
 </template>
 
 <script>
 	import xgallery from '../xgallery'
+	import xactionsheet from '../xactionsheet'
 	export default {
 		data(){
 			return {
@@ -38,10 +41,14 @@
 			showGallery(src){
 				this.$store.state.isShowGallery = true;
 				this.$store.state.gallerySrc = src;
+			},
+			showActionsheet(){
+				this.$store.state.isShowActionsheet = true
 			}
 		},
 		components:{
-			xgallery
+			xgallery,
+			xactionsheet
 		}
 	}
 </script>
